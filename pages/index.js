@@ -1,7 +1,21 @@
+import useSWR from "swr";
+import Link from "next/link";
+
 export default function HomePage() {
+  const { data, isLoading, error } = useSWR(
+    "https://pokeapi.co/api/v2/pokemon"
+  );
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
+  console.log(data);
+  const { results } = data;
+  console.log(results);
   return (
-    <div>
-      <h1>Hello template</h1>
-    </div>
+    <>
+      <h1>Pokemons</h1>
+      {results.map((result) => (
+        <p key={result.name}>{result.name}</p>
+      ))}
+    </>
   );
 }
