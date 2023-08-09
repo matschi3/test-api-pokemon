@@ -1,4 +1,6 @@
+import Link from "next/link";
 import useSWR from "swr";
+import { StyledLink } from "../../components/StyledLink/StyledLink.styled.js";
 
 export default function PokemonPage() {
   const { data, isLoading, error } = useSWR(
@@ -10,9 +12,15 @@ export default function PokemonPage() {
   return (
     <>
       <h1>Pokemons</h1>
-      {results.map((result) => (
-        <p key={result.name}>{result.name}</p>
-      ))}
+      <ul>
+        {results.map((result) => (
+          <li key={result.name}>
+            <StyledLink href={`/pokemon/${result.name}`}>
+              {result.name}
+            </StyledLink>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
