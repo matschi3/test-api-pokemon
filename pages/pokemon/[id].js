@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
+import PokemonCard from "../../components/PokemonCard/index.js";
 
 export default function DetailPokemonPage() {
   const router = useRouter();
@@ -11,5 +12,5 @@ export default function DetailPokemonPage() {
   } = useSWR(`https://pokeapi.co/api/v2/pokemon/${id}`);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
-  console.log(pokemon);
+  return <PokemonCard pokemon={pokemon} />;
 }
