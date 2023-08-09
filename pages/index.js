@@ -6,9 +6,7 @@ export default function HomePage() {
   );
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
-  console.log(data);
   const { results } = data;
-  console.log(results);
   return (
     <>
       <h1>Pokemons</h1>
