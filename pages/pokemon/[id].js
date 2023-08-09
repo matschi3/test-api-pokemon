@@ -7,4 +7,7 @@ export default function DetailPokemonPage() {
   const { data, isLoading, error } = useSWR(
     `https://pokeapi.co/api/v2/pokemon/${id}`
   );
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
+  console.log(data);
 }
