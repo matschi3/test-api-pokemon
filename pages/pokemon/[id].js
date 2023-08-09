@@ -10,7 +10,13 @@ export default function DetailPokemonPage() {
     isLoading,
     error,
   } = useSWR(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error</div>;
-  return <PokemonCard pokemon={pokemon} />;
+  const {
+    data: species,
+    isLoading: speciesIsLoading,
+    error: speciesError,
+  } = useSWR(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+  if (isLoading || speciesIsLoading) return <div>Loading...</div>;
+  if (error || speciesError) return <div>Error</div>;
+
+  return <PokemonCard pokemon={pokemon} species={species} />;
 }
