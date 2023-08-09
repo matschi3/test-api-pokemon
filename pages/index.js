@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import Link from "next/link";
 
 export default function HomePage() {
   const { data, isLoading, error } = useSWR(
