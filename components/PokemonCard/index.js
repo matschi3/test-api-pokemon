@@ -1,8 +1,7 @@
 import Image from "next/image";
 
 export default function PokemonCard({ pokemon }) {
-  console.log(pokemon);
-  const { name, sprites } = pokemon;
+  const { name, sprites, types } = pokemon;
   return (
     <article>
       <h2>{name}</h2>
@@ -12,6 +11,9 @@ export default function PokemonCard({ pokemon }) {
         width={100}
         height={100}
       />
+      {types.map((type) => (
+        <p key={type.type.name}>{type.type.name}</p>
+      ))}
     </article>
   );
 }
