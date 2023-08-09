@@ -11,6 +11,7 @@ export default function PokemonPage() {
   const { results } = data;
   return (
     <>
+      <Link href="/">back</Link>
       <h1>Pokemons</h1>
       <ul>
         {results.map((result) => (
