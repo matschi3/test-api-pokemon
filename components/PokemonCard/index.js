@@ -6,7 +6,10 @@ export default function PokemonCard({ pokemon, species }) {
   return (
     <article>
       <Link href="/pokemon">back</Link>
-      <h2 style={{ color: species.color.name }}>{name}</h2>
+      <article></article>
+      <h2 style={{ color: species.color.name }}>
+        {name[0].toUpperCase() + name.slice(1)}
+      </h2>
       <Image
         src={sprites.other["official-artwork"].front_default}
         alt={name}
