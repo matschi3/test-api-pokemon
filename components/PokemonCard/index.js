@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CardContainer, BackgroundBall, CardImage } from "./PokemonCard.styled";
+import {
+  CardContainer,
+  Card,
+  BackgroundBall,
+  CardImage,
+} from "./PokemonCard.styled";
 
 export default function PokemonCard({ pokemon, species }) {
   const { name, sprites, types, stats } = pokemon;
@@ -8,13 +13,15 @@ export default function PokemonCard({ pokemon, species }) {
     <>
       <Link href="/pokemon">back</Link>
       <CardContainer>
-        <BackgroundBall color={species.color.name} />
-        <CardImage
-          src={sprites.other["official-artwork"].front_default}
-          alt={name}
-          width={100}
-          height={100}
-        />
+        <Card>
+          <BackgroundBall color={species.color.name} />
+          <CardImage
+            src={sprites.other["official-artwork"].front_default}
+            alt={name}
+            width={100}
+            height={100}
+          />
+        </Card>
       </CardContainer>
       <article>
         <h2 style={{ color: species.color.name }}>
