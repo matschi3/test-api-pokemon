@@ -7,7 +7,9 @@ export default function PokemonCard({ pokemon, species }) {
   return (
     <article>
       <Link href="/pokemon">back</Link>
-      <CardContainer></CardContainer>
+      <CardContainer>
+        <BackgroundBall />
+      </CardContainer>
       <h2 style={{ color: species.color.name }}>
         {name[0].toUpperCase() + name.slice(1)}
       </h2>
