@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import Image from "next/image";
 
-export const CardContainer = styled.section``;
+export const CardContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Card = styled.article`
   border: solid 1px red;
@@ -13,7 +17,8 @@ export const Card = styled.article`
 `;
 
 export const BackgroundBall = styled.span`
-  background-color: ${(props) => props.color || "lightgrey"};
+  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: ${(props) => props.color || "lightgrey"}; */
   border-radius: 50%;
   width: 80vw;
   height: 80vw;
