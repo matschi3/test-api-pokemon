@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CardContainer, BackgroundBall } from "./PokemonCard.styled";
 
 export default function PokemonCard({ pokemon, species }) {
   const { name, sprites, types, stats } = pokemon;
   return (
     <article>
       <Link href="/pokemon">back</Link>
-      <article></article>
+      <CardContainer></CardContainer>
       <h2 style={{ color: species.color.name }}>
         {name[0].toUpperCase() + name.slice(1)}
       </h2>
