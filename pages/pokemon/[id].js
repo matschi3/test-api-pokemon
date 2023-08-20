@@ -22,7 +22,7 @@ export default function DetailPokemonPage() {
   return (
     <>
       <StyledButton href="/pokemon">back</StyledButton>
-      <PokemonCard pokemon={pokemon} species={species} />;
+      <PokemonCard pokemon={pokemon} species={species} />
     </>
   );
 }
