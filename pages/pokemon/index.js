@@ -16,7 +16,7 @@ export default function PokemonPage() {
     <>
       <StyledButton href="/">back</StyledButton>
       <h1>Pokemons</h1>
-      <CardContainer>
+      <CardContainer marginBottom="1em">
         {results.map((result) => (
           <StyledButton key={result.name} href={`/pokemon/${result.name}`}>
             <Image
