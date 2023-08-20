@@ -39,6 +39,7 @@ export const BackgroundBall = styled.span`
 export const CardImage = styled(Image)`
   position: absolute;
   top: 2em;
+  filter: drop-shadow(1em 1em 0.5em var(--color-black)) saturate(150%);
 `;
 
 export const CardName = styled.h2`
