@@ -7,6 +7,8 @@ import {
   CardImage,
   CardName,
   CardHP,
+  TypeContainer,
+  CardType,
 } from "./PokemonCard.styled";
 
 export default function PokemonCard({ pokemon, species }) {
@@ -29,6 +31,16 @@ export default function PokemonCard({ pokemon, species }) {
           <CardHP>
             {stats[0].stat.name.toUpperCase()} {stats[0].base_stat}
           </CardHP>
+          <TypeContainer>
+            {types.map((type) => (
+              <CardType
+                key={type.type.name}
+                color={`var(--color-type-${type.type.name})`}
+              >
+                {type.type.name}
+              </CardType>
+            ))}
+          </TypeContainer>
         </Card>
       </CardContainer>
       <article>
