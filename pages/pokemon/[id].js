@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import PokemonCard from "../../components/PokemonCard/index.js";
+import { StyledButton } from "../../components/StyledButton/StyledButton.styled.js";
 
 export default function DetailPokemonPage() {
   const router = useRouter();
@@ -18,5 +19,10 @@ export default function DetailPokemonPage() {
   if (isLoading || speciesIsLoading) return <div>Loading...</div>;
   if (error || speciesError) return <div>Error</div>;
 
-  return <PokemonCard pokemon={pokemon} species={species} />;
+  return (
+    <>
+      <StyledButton href="/pokemon">back</StyledButton>
+      <PokemonCard pokemon={pokemon} species={species} />;
+    </>
+  );
 }
