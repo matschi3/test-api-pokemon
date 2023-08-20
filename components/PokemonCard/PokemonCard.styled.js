@@ -23,7 +23,7 @@ export const Card = styled.article`
   flex-direction: column;
   align-items: center;
   position: relative;
-  background-color: lightgrey;
+  background-color: var(--color-grey);
   overflow: hidden;
 `;
 
@@ -51,7 +51,7 @@ export const CardHP = styled.p`
   position: absolute;
   top: 1.2em;
   right: 1.2em;
-  background-color: var(--color-white);
+  background-color: var(--color-grey);
   border-radius: 1em;
   padding: 0.5em;
   font-weight: bold;
