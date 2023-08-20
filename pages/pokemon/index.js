@@ -1,6 +1,5 @@
-import Link from "next/link";
 import useSWR from "swr";
-import { StyledButton } from "@/components/StyledButton/StyledButton.styled.js";
+import { StyledButton } from "../../components/StyledButton/StyledButton.styled.js";
 
 export default function PokemonPage() {
   const { data, isLoading, error } = useSWR(
@@ -11,7 +10,7 @@ export default function PokemonPage() {
   const { results } = data;
   return (
     <>
-      <Link href="/">back</Link>
+      <StyledButton href="/">back</StyledButton>
       <h1>Pokemons</h1>
       <ul>
         {results.map((result) => (
