@@ -5,6 +5,7 @@ export const CardContainer = styled.section`
   display: flex;
   flex-direction: ${(props) => props.direction || "column"};
   align-items: ${(props) => props.align || "center"};
+  justify-content: ${(props) => props.justify || "center"};
   margin-top: ${(props) => props.marginTop || "2em"};
   ${(props) => props.absolute && "position: absolute"};
   ${(props) => props.top && `top: ${props.top}`};
@@ -64,4 +65,7 @@ export const CardType = styled.p`
   margin: 0 0.5em;
 `;
 
-export const CardStats = styled.p``;
+export const CardStats = styled.p`
+  ${(props) => props.bold && "font-weight: bold"};
+  margin: 0.3em;
+`;
