@@ -18,7 +18,7 @@ export const CardContainer = styled.section`
 export const Card = styled.article`
   border-radius: 1em;
   width: 90vw;
-  height: 60vh;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
