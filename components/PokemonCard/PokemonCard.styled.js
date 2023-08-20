@@ -3,9 +3,14 @@ import Image from "next/image";
 
 export const CardContainer = styled.section`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 2em;
+  flex-direction: ${(props) => props.direction || "column"};
+  align-items: ${(props) => props.align || "center"};
+  margin-top: ${(props) => props.marginTop || "2em"};
+  ${(props) => props.absolute && "position: absolute"};
+  ${(props) => props.top && `top: ${props.top}`};
+  ${(props) => props.left && `left: ${props.left}`};
+  ${(props) => props.right && `right: ${props.right}`};
+  ${(props) => props.bottom && `bottom: ${props.bottom}`};
 `;
 
 export const Card = styled.article`
@@ -51,13 +56,6 @@ export const CardHP = styled.p`
   font-weight: bold;
 `;
 
-export const TypeContainer = styled.div`
-  position: absolute;
-  top: 21em;
-  display: flex;
-  justify-content: space-around;
-`;
-
 export const CardType = styled.p`
   background-color: ${(props) => props.color || "var(--color-black)"};
   color: var(--color-white);
@@ -65,3 +63,5 @@ export const CardType = styled.p`
   padding: 0.5em 2em;
   margin: 0 0.5em;
 `;
+
+export const CardStats = styled.p``;
