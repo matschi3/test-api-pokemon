@@ -12,6 +12,7 @@ export const CardContainer = styled.section`
   ${(props) => props.left && `left: ${props.left}`};
   ${(props) => props.right && `right: ${props.right}`};
   ${(props) => props.bottom && `bottom: ${props.bottom}`};
+  ${(props) => props.width && `width: ${props.width}`};
 `;
 
 export const Card = styled.article`
@@ -67,5 +68,4 @@ export const CardType = styled.p`
 
 export const CardStats = styled.p`
   ${(props) => props.bold && "font-weight: bold"};
-  margin: 0.3em;
 `;
