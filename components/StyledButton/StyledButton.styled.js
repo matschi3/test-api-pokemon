@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { StyledLink } from "../StyledLink/StyledLink.styled.js";
 
 export const StyledButton = styled(StyledLink)`
-  background-color: var(--color-main);
+  background-color: var(--color-grey);
   border: 2px solid var(--color-black);
   border-radius: 30px;
   box-shadow: var(--color-black) 4px 4px 0 0;
@@ -24,9 +24,9 @@ export const StyledButton = styled(StyledLink)`
   }
 
   &:active {
-    box-shadow: var(--color-main) 2px 0 0;
+    box-shadow: var(--color-gray) 2px 0 0;
     transform: translate(2px, 2px);
-    border: 2px solid var(--color-main);
+    border: 2px solid var(--color-grey);
   }
 
   @media (min-width: 768px) {
