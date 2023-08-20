@@ -7,8 +7,8 @@ import {
   CardImage,
   CardName,
   CardHP,
-  TypeContainer,
   CardType,
+  CardStats,
 } from "./PokemonCard.styled";
 
 export default function PokemonCard({ pokemon, species }) {
@@ -31,7 +31,7 @@ export default function PokemonCard({ pokemon, species }) {
           <CardHP>
             {stats[0].stat.name.toUpperCase()} {stats[0].base_stat}
           </CardHP>
-          <TypeContainer>
+          <CardContainer absolute top="19em" direction="row">
             {types.map((type) => (
               <CardType
                 key={type.type.name}
@@ -40,7 +40,12 @@ export default function PokemonCard({ pokemon, species }) {
                 {type.type.name}
               </CardType>
             ))}
-          </TypeContainer>
+          </CardContainer>
+          <CardContainer absolute top="23em" direction="row">
+            <CardStats>
+              {stats[1].base_stat} {stats[1].stat.name}
+            </CardStats>
+          </CardContainer>
         </Card>
       </CardContainer>
       <article>
