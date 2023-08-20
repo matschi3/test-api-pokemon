@@ -1,6 +1,5 @@
 import Link from "next/link";
 import useSWR from "swr";
-import { StyledLink } from "../../components/StyledLink/StyledLink.styled.js";
 import { StyledButton } from "@/components/StyledButton/StyledButton.styled.js";
 
 export default function PokemonPage() {
@@ -18,7 +17,7 @@ export default function PokemonPage() {
         {results.map((result) => (
           <li key={result}>
             <StyledButton href={`/pokemon/${result.name}`}>
-              {result.name}
+              {result.name[0].toUpperCase() + result.name.slice(1)}
             </StyledButton>
           </li>
         ))}
