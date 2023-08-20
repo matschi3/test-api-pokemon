@@ -18,8 +18,8 @@ export default function PokemonCard({ pokemon, species }) {
           <CardImage
             src={sprites.other["official-artwork"].front_default}
             alt={name}
-            width={100}
-            height={100}
+            width={260}
+            height={260}
           />
         </Card>
       </CardContainer>
