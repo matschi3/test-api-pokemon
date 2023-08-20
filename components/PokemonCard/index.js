@@ -41,10 +41,33 @@ export default function PokemonCard({ pokemon, species }) {
               </CardType>
             ))}
           </CardContainer>
-          <CardContainer absolute top="23em" direction="row">
-            <CardStats>
-              {stats[1].base_stat} {stats[1].stat.name}
-            </CardStats>
+          <CardContainer
+            absolute
+            top="23em"
+            direction="row"
+            justify="space-around"
+          >
+            <CardContainer>
+              <CardStats bold>{stats[1].base_stat}</CardStats>
+              <CardStats>
+                {stats[1].stat.name[0].toUpperCase() +
+                  stats[1].stat.name.slice(1)}
+              </CardStats>
+            </CardContainer>
+            <CardContainer>
+              <CardStats bold>{stats[2].base_stat}</CardStats>
+              <CardStats>
+                {stats[2].stat.name[0].toUpperCase() +
+                  stats[2].stat.name.slice(1)}
+              </CardStats>
+            </CardContainer>
+            <CardContainer>
+              <CardStats bold>{stats[5].base_stat}</CardStats>
+              <CardStats>
+                {stats[5].stat.name[0].toUpperCase() +
+                  stats[5].stat.name.slice(1)}
+              </CardStats>
+            </CardContainer>
           </CardContainer>
         </Card>
       </CardContainer>
