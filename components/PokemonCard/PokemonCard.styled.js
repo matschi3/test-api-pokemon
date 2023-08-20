@@ -28,7 +28,7 @@ export const Card = styled.article`
 `;
 
 export const BackgroundBall = styled.span`
-  background-color: ${(props) => props.color || "lightgrey"};
+  background-color: ${(props) => props.color || "var(--color-white)"};
   border-radius: 50%;
   width: 110vw;
   height: 110vw;
