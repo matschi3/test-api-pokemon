@@ -6,7 +6,6 @@ export const CardContainer = styled.section`
   flex-direction: column;
   align-items: center;
   margin-top: 2em;
-  border: solid 1px green;
 `;
 
 export const Card = styled.article`
@@ -35,4 +34,8 @@ export const CardImage = styled(Image)`
   top: 2em;
 `;
 
-export const CardName = styled.h2``;
+export const CardName = styled.h2`
+  position: absolute;
+  top: 12em;
+  color: ${(props) => props.color || "var(--color-black)"};
+`;
