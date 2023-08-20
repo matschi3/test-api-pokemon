@@ -40,4 +40,12 @@ export const CardName = styled.h2`
   color: ${(props) => props.color || "var(--color-black)"};
 `;
 
-export const CardHP = styled.p``;
+export const CardHP = styled.p`
+  position: absolute;
+  top: 1.2em;
+  right: 1.2em;
+  background-color: var(--color-white);
+  border-radius: 1em;
+  padding: 0.5em;
+  font-weight: bold;
+`;
