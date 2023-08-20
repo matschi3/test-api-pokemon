@@ -49,3 +49,11 @@ export const CardHP = styled.p`
   padding: 0.5em;
   font-weight: bold;
 `;
+
+export const TypeContainer = styled.div`
+  position: absolute;
+  top: 13em;
+  display: flex;
+`;
+
+export const CardType = styled.p``;
