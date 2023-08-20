@@ -5,6 +5,7 @@ import {
   Card,
   BackgroundBall,
   CardImage,
+  CardName,
 } from "./PokemonCard.styled";
 
 export default function PokemonCard({ pokemon, species }) {
@@ -21,6 +22,9 @@ export default function PokemonCard({ pokemon, species }) {
             width={260}
             height={260}
           />
+          <CardName color={species.color.name}>
+            {name[0].toUpperCase() + name.slice(1)}
+          </CardName>
         </Card>
       </CardContainer>
       <article>
