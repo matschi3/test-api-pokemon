@@ -46,6 +46,7 @@ export default function PokemonCard({ pokemon, species }) {
             top="23em"
             direction="row"
             justify="space-around"
+            width="100%"
           >
             <CardContainer>
               <CardStats bold>{stats[1].base_stat}</CardStats>
