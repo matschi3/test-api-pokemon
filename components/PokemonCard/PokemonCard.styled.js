@@ -39,3 +39,5 @@ export const CardName = styled.h2`
   top: 12em;
   color: ${(props) => props.color || "var(--color-black)"};
 `;
+
+export const CardHP = styled.p``;
