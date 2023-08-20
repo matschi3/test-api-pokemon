@@ -45,6 +45,7 @@ export const CardName = styled.h2`
   position: absolute;
   top: 12em;
   color: var(--color-black);
+  transform: scale(1.5);
 `;
 
 export const CardHP = styled.p`
@@ -67,4 +68,6 @@ export const CardType = styled.p`
 
 export const CardStats = styled.p`
   ${(props) => props.bold && "font-weight: bold"};
+  transform: scale(1.5);
+  padding: 0.3em;
 `;

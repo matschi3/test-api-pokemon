@@ -39,7 +39,7 @@ export default function PokemonCard({ pokemon, species }) {
         </CardContainer>
         <CardContainer
           absolute
-          top="23em"
+          top="22em"
           direction="row"
           justify="space-around"
           width="100%"
