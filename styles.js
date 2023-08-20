@@ -12,8 +12,9 @@ export default createGlobalStyle`
 :root { 
     --color-white: #eaeaea;
     --color-black: #121212;
+    --color-grey: #DCDCDC;
     --color-main: rgb(255, 74, 17); 
-    
+
 // Pkmn type colors
     --color-type-bug: #26de81;
     --color-type-dragon: #ffeaa7;
