@@ -5,25 +5,34 @@ export const CardContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2em;
+  border: solid 1px green;
 `;
 
 export const Card = styled.article`
-  border: solid 1px red;
-  width: 95vw;
+  border-radius: 1em;
+  width: 90vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: lightgrey;
+  overflow: hidden;
 `;
 
 export const BackgroundBall = styled.span`
-  background-color: rgba(255, 255, 255, 0.5);
-  /* background-color: ${(props) => props.color || "lightgrey"}; */
+  background-color: ${(props) => props.color || "lightgrey"};
   border-radius: 50%;
-  width: 80vw;
-  height: 80vw;
+  width: 110vw;
+  height: 110vw;
   position: absolute;
-  top: -40vw;
+  top: -60vw;
 `;
 
-export const CardImage = styled(Image)``;
+export const CardImage = styled(Image)`
+  position: absolute;
+  top: 2em;
+`;
+
+export const CardName = styled.h2``;
