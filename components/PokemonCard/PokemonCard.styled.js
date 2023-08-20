@@ -37,7 +37,8 @@ export const CardImage = styled(Image)`
 export const CardName = styled.h2`
   position: absolute;
   top: 12em;
-  color: ${(props) => props.color || "var(--color-black)"};
+  color: var(--color-black);
+  /* color: ${(props) => props.color || "var(--color-black)"}; */
 `;
 
 export const CardHP = styled.p`
@@ -52,8 +53,15 @@ export const CardHP = styled.p`
 
 export const TypeContainer = styled.div`
   position: absolute;
-  top: 13em;
+  top: 21em;
   display: flex;
+  justify-content: space-around;
 `;
 
-export const CardType = styled.p``;
+export const CardType = styled.p`
+  background-color: ${(props) => props.color || "var(--color-black)"};
+  color: var(--color-white);
+  border-radius: 1em;
+  padding: 0.5em 2em;
+  margin: 0 0.5em;
+`;
