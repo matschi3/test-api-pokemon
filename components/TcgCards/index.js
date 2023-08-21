@@ -12,14 +12,17 @@ export default function TcgCards({ pokemonName }) {
   console.log(tcg);
   return (
     <>
-      <p>TCG Cards for {pokemonName}</p>
-      <Image
-        src={tcg.data[0].images.large}
-        alt={pokemonName}
-        width={367}
-        height={512}
-        loading="lazy"
-      />
+      {tcg.data.map((tcgCard) => (
+        <Image
+          key={tcgCard.id}
+          src={tcgCard.images.large}
+          alt={pokemonName}
+          width={367}
+          height={512}
+          loading="lazy"
+          style={{ margin: "0.5em", borderRadius: "0.5em" }}
+        />
+      ))}
     </>
   );
 }
