@@ -23,6 +23,14 @@ export default function TcgCards({ pokemonName }) {
             key={tcgCard.id}
             onClick={() => setActiveTcgCard(`${tcgCard.images.large}`)}
           >
+            <Image
+              src={tcgCard.set.images.symbol}
+              alt={tcgCard.set.name}
+              width={30}
+              height={30}
+              loading="lazy"
+              style={{ verticalAlign: "middle", marginRight: "0.5em" }}
+            />
             {tcgCard.set.name}
           </StyledButton>
         ))}
