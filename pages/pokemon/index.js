@@ -2,8 +2,10 @@ import useSWR from "swr";
 import { StyledButton } from "../../components/StyledButton/StyledButton.styled.js";
 import Image from "next/image.js";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
+import { useState } from "react";
 
 export default function PokemonPage() {
+  const [tcgIsActive, setTcgIsActive] = useState(false);
   const {
     data: fetchData,
     isLoading,
