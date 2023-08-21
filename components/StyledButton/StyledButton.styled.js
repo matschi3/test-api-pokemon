@@ -1,7 +1,15 @@
 import styled from "styled-components";
 
+export const StyledButtonContainer = styled.section`
+  display: flex;
+  white-space: nowrap;
+  overflow-x: scroll;
+  margin: 0.05em;
+  width: 100vw;
+`;
+
 export const StyledButton = styled.button`
-  background-color: var(--color-grey);
+  background-color: ${(props) => props.backgroundColor || "var(--color-grey)"};
   border: 2px solid var(--color-black);
   border-radius: 30px;
   box-shadow: var(--color-black) 4px 4px 0 0;
