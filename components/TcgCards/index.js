@@ -1,7 +1,10 @@
 import useSWR from "swr";
 import Image from "next/image";
 import { useState } from "react";
-import { StyledButton } from "../StyledButton/StyledButton.styled.js";
+import {
+  StyledButton,
+  StyledButtonContainer,
+} from "../StyledButton/StyledButton.styled.js";
 
 export default function TcgCards({ pokemonName }) {
   const [activeTcgCard, setActiveTcgCard] = useState("");
@@ -12,18 +15,18 @@ export default function TcgCards({ pokemonName }) {
   } = useSWR(`https://api.pokemontcg.io/v2/cards/?q=name:${pokemonName}`);
   if (tcgIsLoading) return <div>Loading...</div>;
   if (tcgError) return <div>Error</div>;
-  console.log(tcg);
-  console.log(activeTcgCard);
   return (
     <>
-      {tcg.data.map((tcgCard) => (
-        <StyledButton
-          key={tcgCard.set.id}
-          onClick={() => setActiveTcgCard(`${tcgCard.images.large}`)}
-        >
-          {tcgCard.set.name}
-        </StyledButton>
-      ))}
+      <StyledButtonContainer>
+        {tcg.data.map((tcgCard) => (
+          <StyledButton
+            key={tcgCard.id}
+            onClick={() => setActiveTcgCard(`${tcgCard.images.large}`)}
+          >
+            {tcgCard.set.name}
+          </StyledButton>
+        ))}
+      </StyledButtonContainer>
       {activeTcgCard === "" ? (
         ""
       ) : (
