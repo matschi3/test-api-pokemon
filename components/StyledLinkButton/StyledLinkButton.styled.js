@@ -18,6 +18,7 @@ export const StyledLinkButton = styled(StyledLink)`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 0.15em;
 
   &:hover {
     background-color: var(--color-white);

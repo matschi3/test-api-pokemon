@@ -17,6 +17,7 @@ export const StyledButton = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin: 0.15em;
 
   &:hover {
     background-color: var(--color-white);
