@@ -28,15 +28,10 @@ export default function DetailPokemonPage() {
       <StyledLinkButton href="/pokemon">back</StyledLinkButton>
       <CardContainer marginTop="0" marginBottom="1em">
         <PokemonCard pokemon={pokemon} species={species} />
-        {!tcgIsActive ? (
-          <StyledButton onClick={() => setTcgIsActive(!tcgIsActive)}>
-            Show TradingCards
-          </StyledButton>
-        ) : (
-          <StyledButton onClick={() => setTcgIsActive(!tcgIsActive)}>
-            Hide TradingCards
-          </StyledButton>
-        )}
+        <StyledButton onClick={() => setTcgIsActive(!tcgIsActive)}>
+          {!tcgIsActive ? "Show TradingCards" : "Hide TradingCards"}
+        </StyledButton>
+        {!tcgIsActive ? "" : <p>TraidingCards coming...</p>}
       </CardContainer>
     </>
   );
