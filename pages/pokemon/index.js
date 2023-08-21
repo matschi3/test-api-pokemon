@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { StyledButton } from "../../components/StyledButton/StyledButton.styled.js";
+import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkButton.styled.js";
 import Image from "next/image.js";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
 
@@ -14,11 +14,11 @@ export default function PokemonPage() {
   const { results } = fetchData;
   return (
     <>
-      <StyledButton href="/">back</StyledButton>
+      <StyledLinkButton href="/">back</StyledLinkButton>
       <h1>Pokemons</h1>
       <CardContainer marginBottom="1em">
         {results.map((result) => (
-          <StyledButton key={result.name} href={`/pokemon/${result.name}`}>
+          <StyledLinkButton key={result.name} href={`/pokemon/${result.name}`}>
             <Image
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                 result.url.match(/\/([0-9]*)\/$/)[1]
@@ -30,7 +30,7 @@ export default function PokemonPage() {
               style={{ verticalAlign: "middle", marginRight: "0.5em" }}
             />
             {result.name[0].toUpperCase() + result.name.slice(1)}
-          </StyledButton>
+          </StyledLinkButton>
         ))}
       </CardContainer>
     </>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { StyledLink } from "../StyledLink/StyledLink.styled.js";
 
-export const StyledButton = styled(StyledLink)`
+export const StyledLinkButton = styled(StyledLink)`
   background-color: var(--color-grey);
   border: 2px solid var(--color-black);
   border-radius: 30px;
