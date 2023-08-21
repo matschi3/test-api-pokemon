@@ -5,6 +5,7 @@ import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkBu
 import { StyledButton } from "../../components/StyledButton/StyledButton.styled.js";
 import { useState } from "react";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
+import TcgCards from "../../components/TcgCards/index.js";
 
 export default function DetailPokemonPage() {
   const [tcgIsActive, setTcgIsActive] = useState(false);
@@ -22,7 +23,6 @@ export default function DetailPokemonPage() {
   } = useSWR(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
   if (isLoading || speciesIsLoading) return <div>Loading...</div>;
   if (error || speciesError) return <div>Error</div>;
-
   return (
     <>
       <StyledLinkButton href="/pokemon">back</StyledLinkButton>
@@ -31,7 +31,7 @@ export default function DetailPokemonPage() {
         <StyledButton onClick={() => setTcgIsActive(!tcgIsActive)}>
           {!tcgIsActive ? "Show TradingCards" : "Hide TradingCards"}
         </StyledButton>
-        {!tcgIsActive ? "" : <p>TraidingCards coming...</p>}
+        {!tcgIsActive ? "" : <TcgCards pokemonName={pokemon.name} />}
       </CardContainer>
     </>
   );
