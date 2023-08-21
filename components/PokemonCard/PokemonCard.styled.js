@@ -7,8 +7,7 @@ export const CardContainer = styled.section`
   align-items: ${(props) => props.align || "center"};
   justify-content: ${(props) => props.justify || "center"};
   margin-top: ${(props) => props.marginTop || "2em"};
-  ${(props) =>
-    props.marginBottom ? `margin-bottom: ${props.marginBottom}` : ""};
+  ${(props) => props.marginbottom && `margin-bottom: ${props.marginbottom}`};
   ${(props) => props.absolute && "position: absolute"};
   ${(props) => props.top && `top: ${props.top}`};
   ${(props) => props.left && `left: ${props.left}`};
