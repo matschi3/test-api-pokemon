@@ -2,8 +2,10 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import PokemonCard from "../../components/PokemonCard/index.js";
 import { StyledButton } from "../../components/StyledButton/StyledButton.styled.js";
+import { useState } from "react";
 
 export default function DetailPokemonPage() {
+  const [tcgIsActive, setTcgIsActive] = useState(false);
   const router = useRouter();
   const { id } = router.query;
   const {
