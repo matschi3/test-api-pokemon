@@ -2,7 +2,9 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import PokemonCard from "../../components/PokemonCard/index.js";
 import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkButton.styled.js";
+import { StyledButton } from "../../components/StyledButton/StyledButton.styled.js";
 import { useState } from "react";
+import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
 
 export default function DetailPokemonPage() {
   const [tcgIsActive, setTcgIsActive] = useState(false);
@@ -24,12 +26,14 @@ export default function DetailPokemonPage() {
   return (
     <>
       <StyledLinkButton href="/pokemon">back</StyledLinkButton>
-      <PokemonCard pokemon={pokemon} species={species} />
-      {!tcgIsActive ? (
-        <button>Show TradingCards</button>
-      ) : (
-        <button>Hide TradingCards</button>
-      )}
+      <CardContainer marginTop="0" marginBottom="1em">
+        <PokemonCard pokemon={pokemon} species={species} />
+        {!tcgIsActive ? (
+          <StyledButton>Show TradingCards</StyledButton>
+        ) : (
+          <StyledButton>Hide TradingCards</StyledButton>
+        )}
+      </CardContainer>
     </>
   );
 }
