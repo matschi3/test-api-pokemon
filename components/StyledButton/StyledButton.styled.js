@@ -6,6 +6,12 @@ export const StyledButtonContainer = styled.section`
   overflow-x: scroll;
   margin: 0.05em;
   width: 100vw;
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+  }
 `;
 
 export const StyledButton = styled.button`
