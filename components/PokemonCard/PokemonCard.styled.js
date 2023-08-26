@@ -18,7 +18,7 @@ export const CardContainer = styled.section`
 
 export const Card = styled.article`
   border-radius: 1em;
-  width: 90vw;
+  width: min(90vw, 375px);
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -31,10 +31,10 @@ export const Card = styled.article`
 export const BackgroundBall = styled.span`
   background-color: ${(props) => props.color || "lightgrey"};
   border-radius: 50%;
-  width: 110vw;
-  height: 110vw;
+  width: 500px;
+  height: 500px;
   position: absolute;
-  top: -60vw;
+  top: -20em;
 `;
 
 export const CardImage = styled(Image)`
