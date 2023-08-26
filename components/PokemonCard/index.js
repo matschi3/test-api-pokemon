@@ -44,21 +44,21 @@ export default function PokemonCard({ pokemon, species }) {
           justify="space-around"
           width="100%"
         >
-          <CardContainer>
+          <CardContainer style={{ flexDirection: "column" }}>
             <CardStats bold>{stats[1].base_stat}</CardStats>
             <CardStats>
               {stats[1].stat.name[0].toUpperCase() +
                 stats[1].stat.name.slice(1)}
             </CardStats>
           </CardContainer>
-          <CardContainer>
+          <CardContainer style={{ flexDirection: "column" }}>
             <CardStats bold>{stats[2].base_stat}</CardStats>
             <CardStats>
               {stats[2].stat.name[0].toUpperCase() +
                 stats[2].stat.name.slice(1)}
             </CardStats>
           </CardContainer>
-          <CardContainer>
+          <CardContainer style={{ flexDirection: "column" }}>
             <CardStats bold>{stats[5].base_stat}</CardStats>
             <CardStats>
               {stats[5].stat.name[0].toUpperCase() +

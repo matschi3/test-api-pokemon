@@ -14,6 +14,11 @@ export const CardContainer = styled.section`
   ${(props) => props.right && `right: ${props.right}`};
   ${(props) => props.bottom && `bottom: ${props.bottom}`};
   ${(props) => props.width && `width: ${props.width}`};
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 export const Card = styled.article`
