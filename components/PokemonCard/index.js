@@ -5,7 +5,9 @@ import {
   CardImage,
   CardName,
   CardHP,
+  CardTypeContainer,
   CardType,
+  CardStatsContainer,
   CardStats,
 } from "./PokemonCard.styled";
 
@@ -20,6 +22,7 @@ export default function PokemonCard({ pokemon, species }) {
           alt={name}
           width={260}
           height={260}
+          layout="responsive"
         />
         <CardName color={species.color.name}>
           {name[0].toUpperCase() + name.slice(1)}
@@ -27,7 +30,7 @@ export default function PokemonCard({ pokemon, species }) {
         <CardHP>
           {stats[0].stat.name.toUpperCase()} {stats[0].base_stat}
         </CardHP>
-        <CardContainer absolute top="19em" direction="row">
+        <CardTypeContainer>
           {types.map((type) => (
             <CardType
               key={type.type.name}
@@ -36,36 +39,30 @@ export default function PokemonCard({ pokemon, species }) {
               {type.type.name}
             </CardType>
           ))}
-        </CardContainer>
-        <CardContainer
-          absolute
-          top="22em"
-          direction="row"
-          justify="space-around"
-          width="100%"
-        >
-          <CardContainer style={{ flexDirection: "column" }}>
+        </CardTypeContainer>
+        <CardStatsContainer>
+          <CardContainer style={{ flexDirection: "column", margin: 0 }}>
             <CardStats bold>{stats[1].base_stat}</CardStats>
             <CardStats>
               {stats[1].stat.name[0].toUpperCase() +
                 stats[1].stat.name.slice(1)}
             </CardStats>
           </CardContainer>
-          <CardContainer style={{ flexDirection: "column" }}>
+          <CardContainer style={{ flexDirection: "column", margin: 0 }}>
             <CardStats bold>{stats[2].base_stat}</CardStats>
             <CardStats>
               {stats[2].stat.name[0].toUpperCase() +
                 stats[2].stat.name.slice(1)}
             </CardStats>
           </CardContainer>
-          <CardContainer style={{ flexDirection: "column" }}>
+          <CardContainer style={{ flexDirection: "column", margin: 0 }}>
             <CardStats bold>{stats[5].base_stat}</CardStats>
             <CardStats>
               {stats[5].stat.name[0].toUpperCase() +
                 stats[5].stat.name.slice(1)}
             </CardStats>
           </CardContainer>
-        </CardContainer>
+        </CardStatsContainer>
       </Card>
     </CardContainer>
   );

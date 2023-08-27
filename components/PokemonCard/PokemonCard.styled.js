@@ -25,44 +25,63 @@ export const Card = styled.article`
   border-radius: 1em;
   width: min(90vw, 375px);
   height: 500px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
   background-color: var(--color-grey);
+  display: grid;
+  grid-template-areas:
+    ". . . hp hp"
+    ". img img img ."
+    ". img img img ."
+    ". img img img ."
+    ". pkmnname pkmnname pkmnname ."
+    "type type type type type"
+    "stats stats stats stats stats";
+  grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr;
+  grid-template-rows: repeat(7, 1fr);
+  position: relative;
   overflow: hidden;
 `;
 
 export const BackgroundBall = styled.span`
+  position: absolute;
+  top: -50%;
+  justify-self: center;
   background-color: ${(props) => props.color || "lightgrey"};
   border-radius: 50%;
   width: 500px;
   height: 500px;
-  position: absolute;
-  top: -20em;
 `;
 
 export const CardImage = styled(Image)`
-  position: absolute;
-  top: 2em;
+  grid-area: img;
+  justify-self: center;
+  align-self: center;
   filter: drop-shadow(1em 1em 0.5em var(--color-black)) saturate(150%);
 `;
 
 export const CardName = styled.h2`
-  position: absolute;
-  top: 12em;
+  grid-area: pkmnname;
+  justify-self: center;
+  align-self: center;
   color: var(--color-black);
-  transform: scale(1.5);
+  font-size: 2.2em;
 `;
 
 export const CardHP = styled.p`
-  position: absolute;
-  top: 1.2em;
-  right: 1.2em;
+  grid-area: hp;
+  justify-self: center;
+  align-self: center;
   background-color: var(--color-grey);
   border-radius: 1em;
   padding: 0.5em;
   font-weight: bold;
+  z-index: 1;
+`;
+
+export const CardTypeContainer = styled.div`
+  grid-area: type;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 `;
 
 export const CardType = styled.p`
@@ -71,6 +90,14 @@ export const CardType = styled.p`
   border-radius: 1em;
   padding: 0.5em 2em;
   margin: 0 0.5em;
+  font-size: 1.2em;
+`;
+
+export const CardStatsContainer = styled.div`
+  grid-area: stats;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
 `;
 
 export const CardStats = styled.p`
