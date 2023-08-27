@@ -80,8 +80,8 @@ export const CardHP = styled.p`
 export const CardTypeContainer = styled.div`
   grid-area: type;
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 export const CardType = styled.p`
@@ -89,7 +89,6 @@ export const CardType = styled.p`
   color: var(--color-white);
   border-radius: 1em;
   padding: 0.5em 2em;
-  margin: 0 0.5em;
   font-size: 1.2em;
 `;
 
