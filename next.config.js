@@ -13,6 +13,18 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.pokemontcg.io**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

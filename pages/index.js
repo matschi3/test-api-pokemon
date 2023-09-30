@@ -1,7 +1,5 @@
+import Link from "next/link";
+
 export default function HomePage() {
-  return (
-    <div>
-      <h1>Hello template</h1>
-    </div>
-  );
+  return <Link href="/pokemon">Pokemon</Link>;
 }
