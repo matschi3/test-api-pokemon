@@ -5,10 +5,19 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
-export default function Header({ searchQuery, onSearch }) {
+export default function Header() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
+
   const handleInputChange = (event) => {
-    onSearch(event.target.value);
+    setSearchQuery(event.target.value);
+  };
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    router.push(`/pokemon/${searchQuery}`);
   };
 
   return (
@@ -30,7 +39,7 @@ export default function Header({ searchQuery, onSearch }) {
           className="justify-content-between"
         >
           <div className="d-flex">
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSearchSubmit}>
               <Form.Control
                 type="search"
                 placeholder="Pokemon"
