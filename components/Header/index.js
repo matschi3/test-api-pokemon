@@ -7,14 +7,22 @@ import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import stringSimilarity from "string-similarity";
+
+const pokemonNames = ["Pikachu", "Charizard", "Bulbasaur"];
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
   const handleInputChange = (event) => {
-    setSearchQuery(event.target.value);
+    const inputValue = event.target.value;
+    const matches = stringSimilarity.findBestMatch(inputValue, pokemonNames);
+    const bestMatch = matches.bestMatch.target;
+
+    setSearchQuery(bestMatch);
   };
+
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     router.push(`/pokemon/${searchQuery}`);
