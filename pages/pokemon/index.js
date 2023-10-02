@@ -6,10 +6,9 @@ import Header from "../../components/Header/index.js";
 import { useState } from "react";
 
 export default function PokemonPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = (query) => {
-    setSearchQuery(query);
+  const [searchQueryPokemon, setSearchQueryPokemon] = useState("");
+  const handleSearchPokemon = (query) => {
+    setSearchQueryPokemon(query);
   };
 
   const {
@@ -22,7 +21,7 @@ export default function PokemonPage() {
   const { results } = fetchData;
   return (
     <>
-      <Header searchQuery={searchQuery} onSearch={handleSearch} />
+      <Header searchQuery={searchQueryPokemon} onSearch={handleSearchPokemon} />
       <h1>Pokemons</h1>
       <CardContainer marginbottom="1em">
         {results.map((result) => (
