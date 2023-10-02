@@ -23,7 +23,7 @@ export default function Header() {
     event.preventDefault();
 
     const matches = stringSimilarity.findBestMatch(searchQuery, pokemonNames);
-    const bestMatch = matches.bestMatch.target;
+    const bestMatch = matches.bestMatch.target.toLowerCase();
     setSearchQuery(bestMatch);
 
     router.push(`/pokemon/${bestMatch}`);
