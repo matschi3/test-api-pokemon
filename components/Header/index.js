@@ -33,7 +33,7 @@ export default function Header() {
                 type="search"
                 placeholder="Pokemon"
                 className="me-2"
-                aria-label="Search"
+                aria-label="Search Pokemon"
               />
               <Button variant="outline-success">Search</Button>
             </Form>
