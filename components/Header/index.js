@@ -8,8 +8,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import stringSimilarity from "string-similarity";
-
-const pokemonNames = ["Pikachu", "Charizard", "Bulbasaur"];
+import { pokemonNames } from "@/src/pokemonNames";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
