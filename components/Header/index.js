@@ -6,7 +6,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-export default function Header() {
+export default function Header({ searchQuery, onSearch }) {
+  const handleInputChange = (event) => {
+    onSearch(event.target.value);
+  };
+
   return (
     <Navbar sticky="top" expand="lg" className="bg-body-tertiary">
       <Container>
@@ -32,6 +36,8 @@ export default function Header() {
                 placeholder="Pokemon"
                 className="me-2"
                 aria-label="Search Pokemon"
+                value={searchQuery}
+                onChange={handleInputChange}
               />
               <Button variant="outline-success">Search</Button>
             </Form>
