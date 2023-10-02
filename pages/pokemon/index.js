@@ -49,7 +49,6 @@ export default function PokemonPage() {
             }}
           />
         )}
-        <Pagination.Prev />
         <Pagination.Item active>
           {page}
           {" / "}
