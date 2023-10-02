@@ -7,7 +7,8 @@ import Pagination from "react-bootstrap/Pagination";
 import { useState } from "react";
 
 export default function PokemonPage() {
-  const [page, setPage] = useState("1-20");
+  const [page, setPage] = useState(1);
+
   const {
     data: fetchData,
     isLoading,
@@ -15,7 +16,7 @@ export default function PokemonPage() {
   } = useSWR(`https://pokeapi.co/api/v2/pokemon`);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
-  const { results, previous, next } = fetchData;
+  const { results, previous, next, count } = fetchData;
 
   return (
     <>
@@ -41,7 +42,11 @@ export default function PokemonPage() {
 
       <Pagination>
         <Pagination.Prev />
-        <Pagination.Item active>{page}</Pagination.Item>
+        <Pagination.Item active>
+          {page}
+          {" / "}
+          {Math.round(count / 20)}
+        </Pagination.Item>
         <Pagination.Next />
       </Pagination>
     </>
