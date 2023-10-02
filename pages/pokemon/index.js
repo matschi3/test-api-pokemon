@@ -8,12 +8,9 @@ import { useState } from "react";
 
 export default function PokemonPage() {
   const [page, setPage] = useState(1);
+  const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon`);
 
-  const {
-    data: fetchData,
-    isLoading,
-    error,
-  } = useSWR(`https://pokeapi.co/api/v2/pokemon`);
+  const { data: fetchData, isLoading, error } = useSWR(`${url}`);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
   const { results, previous, next, count } = fetchData;
@@ -47,7 +44,23 @@ export default function PokemonPage() {
           {" / "}
           {Math.round(count / 20)}
         </Pagination.Item>
-        <Pagination.Next />
+        {page === Math.round(count / 20) ? (
+          // disabled on last page
+          <Pagination.Next
+            disabled
+            onClick={() => {
+              setUrl(next);
+              setPage(page + 1);
+            }}
+          />
+        ) : (
+          <Pagination.Next
+            onClick={() => {
+              setUrl(next);
+              setPage(page + 1);
+            }}
+          />
+        )}
       </Pagination>
     </>
   );
