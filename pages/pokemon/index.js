@@ -57,13 +57,7 @@ export default function PokemonPage() {
         </Pagination.Item>
         {page === Math.round(count / 20) ? (
           // disabled on last page
-          <Pagination.Next
-            disabled
-            onClick={() => {
-              setUrl(next);
-              setPage(page + 1);
-            }}
-          />
+          <Pagination.Next disabled />
         ) : (
           <Pagination.Next
             onClick={() => {
