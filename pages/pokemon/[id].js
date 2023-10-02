@@ -6,6 +6,7 @@ import { StyledButton } from "../../components/StyledButton/StyledButton.styled.
 import { useState } from "react";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
 import TcgCards from "../../components/TcgCards/index.js";
+import Header from "@/components/Header/index.js";
 
 export default function DetailPokemonPage() {
   const [tcgIsActive, setTcgIsActive] = useState(false);
@@ -25,6 +26,7 @@ export default function DetailPokemonPage() {
   if (error || speciesError) return <div>Error</div>;
   return (
     <>
+      <Header />
       <StyledLinkButton href="/pokemon">back</StyledLinkButton>
       <StyledButton onClick={() => setTcgIsActive(!tcgIsActive)}>
         {!tcgIsActive ? "Show TradingCards" : "Hide TradingCards"}
