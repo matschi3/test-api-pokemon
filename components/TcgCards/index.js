@@ -17,6 +17,11 @@ export default function TcgCards({ pokemonName }) {
   if (tcgError) return <div>Error</div>;
   return (
     <>
+      {activeTcgCard === "" ? (
+        <span>Choose a Set to show the Trading Card</span>
+      ) : (
+        ""
+      )}
       <StyledButtonContainer>
         {tcg.data.map((tcgCard) => (
           <StyledButton
