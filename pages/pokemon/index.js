@@ -38,6 +38,17 @@ export default function PokemonPage() {
       </CardContainer>
 
       <Pagination>
+        {page === 1 ? (
+          // disabled on first page
+          <Pagination.Prev disabled />
+        ) : (
+          <Pagination.Prev
+            onClick={() => {
+              setUrl(previous);
+              setPage(page - 1);
+            }}
+          />
+        )}
         <Pagination.Prev />
         <Pagination.Item active>
           {page}
