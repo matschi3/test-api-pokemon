@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkButton.styled.js";
 import Image from "next/image.js";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
+import Header from "../../components/Header/index.js";
 
 export default function PokemonPage() {
   const {
@@ -14,7 +15,7 @@ export default function PokemonPage() {
   const { results } = fetchData;
   return (
     <>
-      <StyledLinkButton href="/">back</StyledLinkButton>
+      <Header />
       <h1>Pokemons</h1>
       <CardContainer marginbottom="1em">
         {results.map((result) => (
