@@ -22,7 +22,7 @@ export default function PokemonPage() {
   const { results } = fetchData;
   return (
     <>
-      <Header />
+      <Header searchQuery={searchQuery} onSearch={handleSearch} />
       <h1>Pokemons</h1>
       <CardContainer marginbottom="1em">
         {results.map((result) => (
