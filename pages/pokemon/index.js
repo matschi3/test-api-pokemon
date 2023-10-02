@@ -13,7 +13,7 @@ export default function PokemonPage() {
   } = useSWR(`https://pokeapi.co/api/v2/pokemon`);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
-  const { results } = fetchData;
+  const { results, previous, next } = fetchData;
 
   return (
     <>
