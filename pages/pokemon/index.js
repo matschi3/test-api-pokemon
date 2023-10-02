@@ -3,8 +3,15 @@ import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkBu
 import Image from "next/image.js";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
 import Header from "../../components/Header/index.js";
+import { useState } from "react";
 
 export default function PokemonPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   const {
     data: fetchData,
     isLoading,
