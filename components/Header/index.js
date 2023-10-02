@@ -5,8 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Col } from "react-bootstrap";
-import { StyledLinkButton } from "../StyledLinkButton/StyledLinkButton.styled";
 
 export default function Header() {
   return (
