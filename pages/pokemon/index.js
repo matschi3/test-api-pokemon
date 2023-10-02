@@ -3,25 +3,20 @@ import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkBu
 import Image from "next/image.js";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
 import Header from "../../components/Header/index.js";
-import { useState } from "react";
 
 export default function PokemonPage() {
-  const [searchQueryPokemon, setSearchQueryPokemon] = useState("");
-  const handleSearchPokemon = (query) => {
-    setSearchQueryPokemon(query);
-  };
-
   const {
     data: fetchData,
     isLoading,
     error,
-  } = useSWR("https://pokeapi.co/api/v2/pokemon");
+  } = useSWR(`https://pokeapi.co/api/v2/pokemon`);
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error</div>;
   const { results } = fetchData;
+
   return (
     <>
-      <Header searchQuery={searchQueryPokemon} onSearch={handleSearchPokemon} />
+      <Header />
       <h1>Pokemons</h1>
       <CardContainer marginbottom="1em">
         {results.map((result) => (
