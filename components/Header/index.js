@@ -16,16 +16,17 @@ export default function Header() {
   const router = useRouter();
 
   const handleInputChange = (event) => {
-    const inputValue = event.target.value;
-    const matches = stringSimilarity.findBestMatch(inputValue, pokemonNames);
-    const bestMatch = matches.bestMatch.target;
-
-    setSearchQuery(bestMatch);
+    setSearchQuery(event.target.value);
   };
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    router.push(`/pokemon/${searchQuery}`);
+
+    const matches = stringSimilarity.findBestMatch(searchQuery, pokemonNames);
+    const bestMatch = matches.bestMatch.target;
+    setSearchQuery(bestMatch);
+
+    router.push(`/pokemon/${bestMatch}`);
   };
 
   return (
