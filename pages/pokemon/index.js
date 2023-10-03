@@ -35,37 +35,36 @@ export default function PokemonPage() {
             {result.name[0].toUpperCase() + result.name.slice(1)}
           </StyledLinkButton>
         ))}
+        <Pagination>
+          {page === 1 ? (
+            // disabled on first page
+            <Pagination.Prev disabled />
+          ) : (
+            <Pagination.Prev
+              onClick={() => {
+                setUrl(previous);
+                setPage(page - 1);
+              }}
+            />
+          )}
+          <Pagination.Item active>
+            {page}
+            {" / "}
+            {Math.round(count / 20)}
+          </Pagination.Item>
+          {page === Math.round(count / 20) ? (
+            // disabled on last page
+            <Pagination.Next disabled />
+          ) : (
+            <Pagination.Next
+              onClick={() => {
+                setUrl(next);
+                setPage(page + 1);
+              }}
+            />
+          )}
+        </Pagination>
       </CardContainer>
-
-      <Pagination>
-        {page === 1 ? (
-          // disabled on first page
-          <Pagination.Prev disabled />
-        ) : (
-          <Pagination.Prev
-            onClick={() => {
-              setUrl(previous);
-              setPage(page - 1);
-            }}
-          />
-        )}
-        <Pagination.Item active>
-          {page}
-          {" / "}
-          {Math.round(count / 20)}
-        </Pagination.Item>
-        {page === Math.round(count / 20) ? (
-          // disabled on last page
-          <Pagination.Next disabled />
-        ) : (
-          <Pagination.Next
-            onClick={() => {
-              setUrl(next);
-              setPage(page + 1);
-            }}
-          />
-        )}
-      </Pagination>
     </>
   );
 }
