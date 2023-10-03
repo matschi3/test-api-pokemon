@@ -5,6 +5,7 @@ import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.j
 import Header from "../../components/Header/index.js";
 import Pagination from "react-bootstrap/Pagination";
 import { useState } from "react";
+import Container from "react-bootstrap/Container";
 
 export default function PokemonPage() {
   const [page, setPage] = useState(1);
@@ -35,35 +36,37 @@ export default function PokemonPage() {
             {result.name[0].toUpperCase() + result.name.slice(1)}
           </StyledLinkButton>
         ))}
-        <Pagination size="lg">
-          {page === 1 ? (
-            // disabled on first page
-            <Pagination.Prev disabled />
-          ) : (
-            <Pagination.Prev
-              onClick={() => {
-                setUrl(previous);
-                setPage(page - 1);
-              }}
-            />
-          )}
-          <Pagination.Item active>
-            {page}
-            {" / "}
-            {Math.round(count / 20)}
-          </Pagination.Item>
-          {page === Math.round(count / 20) ? (
-            // disabled on last page
-            <Pagination.Next disabled />
-          ) : (
-            <Pagination.Next
-              onClick={() => {
-                setUrl(next);
-                setPage(page + 1);
-              }}
-            />
-          )}
-        </Pagination>
+        <Container className="fixed-bottom d-flex justify-content-center">
+          <Pagination size="lg">
+            {page === 1 ? (
+              // disabled on first page
+              <Pagination.Prev disabled />
+            ) : (
+              <Pagination.Prev
+                onClick={() => {
+                  setUrl(previous);
+                  setPage(page - 1);
+                }}
+              />
+            )}
+            <Pagination.Item active>
+              {page}
+              {" / "}
+              {Math.round(count / 20)}
+            </Pagination.Item>
+            {page === Math.round(count / 20) ? (
+              // disabled on last page
+              <Pagination.Next disabled />
+            ) : (
+              <Pagination.Next
+                onClick={() => {
+                  setUrl(next);
+                  setPage(page + 1);
+                }}
+              />
+            )}
+          </Pagination>
+        </Container>
       </CardContainer>
     </>
   );
