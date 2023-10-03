@@ -31,6 +31,12 @@ export default function PokemonPage() {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleGoToPage();
+    }
+  };
+
   return (
     <>
       <Header />
@@ -69,21 +75,17 @@ export default function PokemonPage() {
               />
             )}
             <Pagination.Item active>
-              {page}
-              {" / "}
-              {Math.round(count / 20)}
               <input
                 type="number"
                 min="1"
                 max={Math.round(count / 20)}
                 ref={inputRef}
-                placeholder={`${page} / ${Math.round(count / 20)}`}
-                style={{
-                  width: "4em",
-                  marginLeft: "0.5em",
-                  marginRight: "0.5em",
-                }}
+                style={{ width: "1.6em" }}
+                onKeyDown={handleKeyDown}
+                placeholder={`${page}`}
               />
+              {" / "}
+              {Math.round(count / 20)}
               <button onClick={handleGoToPage}>Go</button>
             </Pagination.Item>
             {page === Math.round(count / 20) ? (
