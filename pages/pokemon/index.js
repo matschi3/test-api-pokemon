@@ -86,7 +86,6 @@ export default function PokemonPage() {
               />
               {" / "}
               {Math.round(count / 20)}
-              <button onClick={handleGoToPage}>Go</button>
             </Pagination.Item>
             {page === Math.round(count / 20) ? (
               // disabled on last page
