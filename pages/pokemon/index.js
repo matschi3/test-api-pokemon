@@ -35,7 +35,7 @@ export default function PokemonPage() {
             {result.name[0].toUpperCase() + result.name.slice(1)}
           </StyledLinkButton>
         ))}
-        <Pagination>
+        <Pagination size="lg">
           {page === 1 ? (
             // disabled on first page
             <Pagination.Prev disabled />
