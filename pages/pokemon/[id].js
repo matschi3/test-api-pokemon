@@ -44,7 +44,7 @@ export default function DetailPokemonPage() {
         {tcg.data.map((tcgCard) => (
           <StyledButton
             key={tcgCard.id}
-            onClick={() => setActiveTcgCard(`${tcgCard.images.large}`)}
+            onClick={() => setActiveTcgCard(`${tcgCard.id}`)}
           >
             <Image
               src={tcgCard.set.images.symbol}
@@ -60,7 +60,7 @@ export default function DetailPokemonPage() {
       </StyledButtonContainer>
       <CardContainer marginTop="0" marginBottom="1em">
         <PokemonCard pokemon={pokemon} species={species} />
-        {!tcgIsActive ? "" : <TcgCards tcg={tcg} />}
+        {!tcgIsActive ? "" : <TcgCards tcg={tcg} activeTcgSet={activeTcgSet} />}
       </CardContainer>
     </>
   );
