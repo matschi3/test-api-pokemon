@@ -11,7 +11,6 @@ import { StyledButtonContainer } from "../../components/StyledButton/StyledButto
 import Image from "next/image.js";
 
 export default function DetailPokemonPage() {
-  const [tcgIsActive, setTcgIsActive] = useState(false);
   const [activeTcgSet, setActiveTcgCard] = useState("");
   const router = useRouter();
   const { id } = router.query; // id is a name for tcg api cause no pkmn-id there
