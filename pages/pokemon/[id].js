@@ -35,7 +35,9 @@ export default function DetailPokemonPage() {
   return (
     <>
       <Header />
-      <StyledLinkButton href="/pokemon">{"<- Pokemon"}</StyledLinkButton>
+      <StyledLinkButton href="/pokemon" style={{ padding: "0 0.5em" }}>
+        {" < back "}
+      </StyledLinkButton>
       <StyledButtonContainer>
         {tcg.data.map((tcgCard) => (
           <StyledButton
