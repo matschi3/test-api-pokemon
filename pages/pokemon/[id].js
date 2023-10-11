@@ -56,7 +56,7 @@ export default function DetailPokemonPage() {
       </StyledButtonContainer>
       <CardContainer marginTop="0" marginBottom="1em">
         <PokemonCard pokemon={pokemon} species={species} />
-        {!tcgIsActive ? "" : <TcgCards tcg={tcg} activeTcgSet={activeTcgSet} />}
+        <TcgCards tcg={tcg} activeTcgSet={activeTcgSet} />
       </CardContainer>
     </>
   );
