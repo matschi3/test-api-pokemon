@@ -6,6 +6,8 @@ import Header from "../../components/Header/index.js";
 import Pagination from "react-bootstrap/Pagination";
 import { useState } from "react";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import { useRef } from "react";
 
