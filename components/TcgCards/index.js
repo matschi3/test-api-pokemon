@@ -1,21 +1,8 @@
-import useSWR from "swr";
 import Image from "next/image";
-import { useState } from "react";
-import {
-  StyledButton,
-  StyledButtonContainer,
-} from "../StyledButton/StyledButton.styled.js";
 
 export default function TcgCards({ tcg, activeTcgSet }) {
-  const [activeTcgCard, setActiveTcgCard] = useState("");
   return (
     <>
-      {activeTcgSet === "" ? (
-        <span>Choose a Set to show the Trading Card</span>
-      ) : (
-        ""
-      )}
-
       {activeTcgSet === ""
         ? ""
         : tcg.data.map((tcgCard) => {
