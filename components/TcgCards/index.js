@@ -6,15 +6,8 @@ import {
   StyledButtonContainer,
 } from "../StyledButton/StyledButton.styled.js";
 
-export default function TcgCards({ pokemonName }) {
+export default function TcgCards({ tcg }) {
   const [activeTcgCard, setActiveTcgCard] = useState("");
-  const {
-    data: tcg,
-    isLoading: tcgIsLoading,
-    error: tcgError,
-  } = useSWR(`https://api.pokemontcg.io/v2/cards/?q=name:${pokemonName}`);
-  if (tcgIsLoading) return <div>Loading...</div>;
-  if (tcgError) return <div>Error</div>;
   return (
     <>
       {activeTcgCard === "" ? (
@@ -22,30 +15,13 @@ export default function TcgCards({ pokemonName }) {
       ) : (
         ""
       )}
-      <StyledButtonContainer>
-        {tcg.data.map((tcgCard) => (
-          <StyledButton
-            key={tcgCard.id}
-            onClick={() => setActiveTcgCard(`${tcgCard.images.large}`)}
-          >
-            <Image
-              src={tcgCard.set.images.symbol}
-              alt={tcgCard.set.name}
-              width={30}
-              height={30}
-              loading="lazy"
-              style={{ verticalAlign: "middle", marginRight: "0.5em" }}
-            />
-            {tcgCard.set.name}
-          </StyledButton>
-        ))}
-      </StyledButtonContainer>
+
       {activeTcgCard === "" ? (
         ""
       ) : (
         <Image
           src={activeTcgCard}
-          alt={pokemonName}
+          alt={tcg.data[0].name}
           width={367}
           height={512}
           loading="lazy"
