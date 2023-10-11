@@ -11,7 +11,7 @@ import Header from "@/components/Header/index.js";
 export default function DetailPokemonPage() {
   const [tcgIsActive, setTcgIsActive] = useState(false);
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query; // id is a name for tcg api cause no pkmn-id there
   const {
     data: pokemon,
     isLoading,
@@ -22,12 +22,19 @@ export default function DetailPokemonPage() {
     isLoading: speciesIsLoading,
     error: speciesError,
   } = useSWR(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
-  if (isLoading || speciesIsLoading) return <div>Loading...</div>;
-  if (error || speciesError) return <div>Error</div>;
+  const {
+    data: tcg,
+    isLoading: tcgIsLoading,
+    error: tcgError,
+  } = useSWR(`https://api.pokemontcg.io/v2/cards/?q=name:${id}`);
+  if (isLoading || speciesIsLoading || tcgIsLoading)
+    return <div>Loading...</div>;
+  if (error || speciesError || tcgError) return <div>Error</div>;
+  console.log(tcg);
   return (
     <>
       <Header />
-      <StyledLinkButton href="/pokemon">back</StyledLinkButton>
+      <StyledLinkButton href="/pokemon">{"<- Pokemon"}</StyledLinkButton>
       <StyledButton onClick={() => setTcgIsActive(!tcgIsActive)}>
         {!tcgIsActive ? "Show TradingCards" : "Hide TradingCards"}
       </StyledButton>
