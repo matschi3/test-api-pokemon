@@ -1,7 +1,6 @@
 import useSWR from "swr";
 import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkButton.styled.js";
 import Image from "next/image.js";
-import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
 import Header from "../../components/Header/index.js";
 import Pagination from "react-bootstrap/Pagination";
 import { useState } from "react";
@@ -43,24 +42,34 @@ export default function PokemonPage() {
     <>
       <Header />
       <h1>Pokemons</h1>
-
-      <CardContainer marginbottom="1em">
-        {results.map((result) => (
-          <StyledLinkButton key={result.name} href={`/pokemon/${result.name}`}>
-            <Image
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                result.url.match(/\/([0-9]*)\/$/)[1]
-              }.png`}
-              alt={result.name}
-              width={30}
-              height={30}
-              loading="lazy"
-              style={{ verticalAlign: "middle", marginRight: "0.5em" }}
-            />
-            {result.name[0].toUpperCase() + result.name.slice(1)}
-          </StyledLinkButton>
-        ))}
-      </CardContainer>
+      <Container style={{ marginBottom: "5em" }}>
+        <Row>
+          {results.map((result) => (
+            <Col key={result.name} xs={6} sm={4} md={3} lg={2} xl={2}>
+              <Row>
+                <Col>
+                  <StyledLinkButton
+                    href={`/pokemon/${result.name}`}
+                    className="d-flex flex-column align-items-center"
+                    position="relative"
+                  >
+                    <Image
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                        result.url.match(/\/([0-9]*)\/$/)[1]
+                      }.png`}
+                      alt={result.name}
+                      width={30}
+                      height={30}
+                      loading="lazy"
+                    />
+                    {result.name[0].toUpperCase() + result.name.slice(1)}
+                  </StyledLinkButton>
+                </Col>
+              </Row>
+            </Col>
+          ))}
+        </Row>
+      </Container>
       <Container className="fixed-bottom d-flex justify-content-center">
         <Pagination size="lg">
           {page === 1 ? (
