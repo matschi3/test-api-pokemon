@@ -37,9 +37,6 @@ export default function DetailPokemonPage() {
     <>
       <Header />
       <StyledLinkButton href="/pokemon">{"<- Pokemon"}</StyledLinkButton>
-      <StyledButton onClick={() => setTcgIsActive(!tcgIsActive)}>
-        {!tcgIsActive ? "Show TradingCards" : "Hide TradingCards"}
-      </StyledButton>
       <StyledButtonContainer>
         {tcg.data.map((tcgCard) => (
           <StyledButton
