@@ -41,6 +41,7 @@ export default function PokemonPage() {
     <>
       <Header />
       <h1>Pokemons</h1>
+
       <CardContainer marginbottom="1em">
         {results.map((result) => (
           <StyledLinkButton key={result.name} href={`/pokemon/${result.name}`}>
@@ -57,54 +58,54 @@ export default function PokemonPage() {
             {result.name[0].toUpperCase() + result.name.slice(1)}
           </StyledLinkButton>
         ))}
-        <Container className="fixed-bottom d-flex justify-content-center">
-          <Pagination size="lg">
-            {page === 1 ? (
-              // disabled on first page
-              <Pagination.Prev disabled />
-            ) : (
-              <Pagination.Prev
-                onClick={() => {
-                  setUrl(
-                    `https://pokeapi.co/api/v2/pokemon?offset=${
-                      (page - 2) * 20
-                    }&limit=20`
-                  );
-                  setPage(page - 1);
-                }}
-              />
-            )}
-            <Pagination.Item active>
-              <input
-                type="number"
-                min="1"
-                max={Math.round(count / 20)}
-                ref={inputRef}
-                style={{ width: "1.6em" }}
-                onKeyDown={handleKeyDown}
-                placeholder={`${page}`}
-              />
-              {" / "}
-              {Math.round(count / 20)}
-            </Pagination.Item>
-            {page === Math.round(count / 20) ? (
-              // disabled on last page
-              <Pagination.Next disabled />
-            ) : (
-              <Pagination.Next
-                onClick={() => {
-                  setUrl(
-                    `https://pokeapi.co/api/v2/pokemon?offset=${
-                      page * 20
-                    }&limit=20`
-                  );
-                  setPage(page + 1);
-                }}
-              />
-            )}
-          </Pagination>
-        </Container>
       </CardContainer>
+      <Container className="fixed-bottom d-flex justify-content-center">
+        <Pagination size="lg">
+          {page === 1 ? (
+            // disabled on first page
+            <Pagination.Prev disabled />
+          ) : (
+            <Pagination.Prev
+              onClick={() => {
+                setUrl(
+                  `https://pokeapi.co/api/v2/pokemon?offset=${
+                    (page - 2) * 20
+                  }&limit=20`
+                );
+                setPage(page - 1);
+              }}
+            />
+          )}
+          <Pagination.Item active>
+            <input
+              type="number"
+              min="1"
+              max={Math.round(count / 20)}
+              ref={inputRef}
+              style={{ width: "1.6em" }}
+              onKeyDown={handleKeyDown}
+              placeholder={`${page}`}
+            />
+            {" / "}
+            {Math.round(count / 20)}
+          </Pagination.Item>
+          {page === Math.round(count / 20) ? (
+            // disabled on last page
+            <Pagination.Next disabled />
+          ) : (
+            <Pagination.Next
+              onClick={() => {
+                setUrl(
+                  `https://pokeapi.co/api/v2/pokemon?offset=${
+                    page * 20
+                  }&limit=20`
+                );
+                setPage(page + 1);
+              }}
+            />
+          )}
+        </Pagination>
+      </Container>
     </>
   );
 }
