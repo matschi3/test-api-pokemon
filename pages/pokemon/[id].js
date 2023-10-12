@@ -36,10 +36,16 @@ export default function DetailPokemonPage() {
   return (
     <>
       <Header tcg={tcg} />
-      <CardContainer marginTop="0" marginBottom="1em">
-        <PokemonCard pokemon={pokemon} species={species} />
-        <TcgCards tcg={tcg} activeSet={activeSet} />
-      </CardContainer>
+      <Container>
+        <Row>
+          <Col xs={12}>
+            <PokemonCard pokemon={pokemon} species={species} />
+          </Col>
+          <Col xs={12}>
+            <TcgCards tcg={tcg} activeSet={activeSet} />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
