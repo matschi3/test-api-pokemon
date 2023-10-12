@@ -46,7 +46,7 @@ export default function Header({ tcg }) {
   return (
     <Navbar sticky="top" expand="md" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/pokemon">
           <img
             alt=""
             src="/img/logo.svg"
