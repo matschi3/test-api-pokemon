@@ -1,8 +1,7 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
-import PokemonCard from "../../components/PokemonCard/index.js";
-import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
-import TcgCards from "../../components/TcgCards/index.js";
+import PokemonCard from "@/components/PokemonCard/index.js";
+import TcgCards from "@/components/TcgCards/index.js";
 import Header from "@/components/Header/index.js";
 import UseSettingsStore from "@/components/UseStore/UseSettingsStore";
 import Container from "react-bootstrap/Container";
@@ -38,10 +37,14 @@ export default function DetailPokemonPage() {
       <Header tcg={tcg} />
       <Container>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} md={6} className="d-flex justify-content-center">
             <PokemonCard pokemon={pokemon} species={species} />
           </Col>
-          <Col xs={12}>
+          <Col
+            xs={12}
+            md={6}
+            className="d-flex flex-column align-items-center "
+          >
             <TcgCards tcg={tcg} activeSet={activeSet} />
           </Col>
         </Row>
