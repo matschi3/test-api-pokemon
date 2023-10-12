@@ -38,24 +38,6 @@ export default function DetailPokemonPage() {
       <StyledLinkButton href="/pokemon" style={{ padding: "0 0.5em" }}>
         {" < back "}
       </StyledLinkButton>
-      <StyledButtonContainer>
-        {tcg.data.map((tcgCard) => (
-          <StyledButton
-            key={tcgCard.id}
-            onClick={() => setActiveTcgCard(`${tcgCard.id}`)}
-          >
-            <Image
-              src={tcgCard.set.images.symbol}
-              alt={tcgCard.set.name}
-              width={30}
-              height={30}
-              loading="lazy"
-              style={{ verticalAlign: "middle", marginRight: "0.5em" }}
-            />
-            {tcgCard.set.name}
-          </StyledButton>
-        ))}
-      </StyledButtonContainer>
       <CardContainer marginTop="0" marginBottom="1em">
         <PokemonCard pokemon={pokemon} species={species} />
         <TcgCards tcg={tcg} activeTcgSet={activeTcgSet} />
