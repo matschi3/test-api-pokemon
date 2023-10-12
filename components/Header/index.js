@@ -57,7 +57,9 @@ export default function Header() {
                 value={searchQuery}
                 onChange={handleInputChange}
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" onClick={handleSearchSubmit}>
+                Search
+              </Button>
             </Form>
           </div>
           <div className="d-flex">
