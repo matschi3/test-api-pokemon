@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import stringSimilarity from "string-similarity";
 import { pokemonNames } from "@/src/pokemonNames";
+import UseSettingsStore from "../UseStore/UseSettingsStore";
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState("");
