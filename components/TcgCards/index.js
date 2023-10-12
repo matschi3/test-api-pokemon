@@ -1,12 +1,18 @@
 import Image from "next/image";
+import stringSimilarity from "string-similarity";
 
-export default function TcgCards({ tcg, activeTcgSet }) {
+export default function TcgCards({ tcg, activeSet }) {
   return (
     <>
-      {activeTcgSet === ""
+      {activeSet === ""
         ? ""
         : tcg.data.map((tcgCard) => {
-            if (tcgCard.id === activeTcgSet) {
+            const similarity = stringSimilarity.compareTwoStrings(
+              tcgCard.id,
+              activeSet
+            );
+            if (similarity > 0.6) {
+              // set a threshold for similarity
               return (
                 <Image
                   key={tcgCard.id}
