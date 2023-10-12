@@ -22,6 +22,11 @@ export default function Header({ tcg }) {
     ? (activeSetDropdownTitle = "TCG-Set")
     : (activeSetDropdownTitle = settings.activeSetName);
 
+  function handleFixActiveSet() {
+    const tcgSetShort = settings.activeSet.split("-")[0];
+    UseSettingsStore.getState().setSetting("activeSet", tcgSetShort);
+  }
+
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -32,6 +37,8 @@ export default function Header({ tcg }) {
     const matches = stringSimilarity.findBestMatch(searchQuery, pokemonNames);
     const bestMatch = matches.bestMatch.target.toLowerCase();
     setSearchQuery(bestMatch);
+
+    handleFixActiveSet();
 
     router.push(`/pokemon/${bestMatch}`);
   };
