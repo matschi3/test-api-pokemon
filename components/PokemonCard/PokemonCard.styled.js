@@ -23,8 +23,8 @@ export const CardContainer = styled.section`
 
 export const Card = styled.article`
   border-radius: 1em;
-  width: min(90vw, 375px);
-  height: 500px;
+  width: 367px;
+  height: 512px;
   background-color: var(--color-grey);
   display: grid;
   grid-template-areas:
