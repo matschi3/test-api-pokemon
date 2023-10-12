@@ -40,7 +40,7 @@ export default function DetailPokemonPage() {
       </StyledLinkButton>
       <CardContainer marginTop="0" marginBottom="1em">
         <PokemonCard pokemon={pokemon} species={species} />
-        <TcgCards tcg={tcg} activeTcgSet={activeTcgSet} />
+        <TcgCards tcg={tcg} />
       </CardContainer>
     </>
   );
