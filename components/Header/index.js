@@ -16,6 +16,11 @@ export default function Header() {
   const router = useRouter();
   const { settings, setSetting } = UseSettingsStore((state) => state);
 
+  let activeSetDropdownTitle = "";
+  settings.activeSet === ""
+    ? (activeSetDropdownTitle = "TCG-Set")
+    : (activeSetDropdownTitle = settings.activeSet);
+
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -45,7 +50,7 @@ export default function Header() {
         </Navbar.Brand>
         {router.pathname === "/pokemon/[id]" && (
           <Nav className="me-auto">
-            <NavDropdown title="TCG-Set" id="basic-nav-dropdown">
+            <NavDropdown title={activeSetDropdownTitle} id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
