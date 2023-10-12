@@ -1,5 +1,5 @@
 import { create } from "zustand";
 
-const UseSettingsSore = create();
+const UseSettingsStore = create();
 
-export default UseSettingsSore;
+export default UseSettingsStore;
