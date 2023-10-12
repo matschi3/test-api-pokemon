@@ -10,8 +10,9 @@ import { useRouter } from "next/router";
 import stringSimilarity from "string-similarity";
 import { pokemonNames } from "@/src/pokemonNames";
 import UseSettingsStore from "../UseStore/UseSettingsStore";
+import Image from "next/image";
 
-export default function Header() {
+export default function Header({ tcg }) {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
   const { settings, setSetting } = UseSettingsStore((state) => state);
@@ -51,15 +52,31 @@ export default function Header() {
         {router.pathname === "/pokemon/[id]" && (
           <Nav className="me-auto">
             <NavDropdown title={activeSetDropdownTitle} id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              {tcg.data.map((tcgSet) => (
+                <NavDropdown.Item
+                  key={tcgSet.id}
+                  onClick={() => {
+                    UseSettingsStore.getState().setSetting(
+                      "activeSet",
+                      tcgSet.id
+                    );
+                    UseSettingsStore.getState().setSetting(
+                      "activeSetName",
+                      tcgSet.set.name
+                    );
+                  }}
+                >
+                  <Image
+                    src={tcgSet.set.images.symbol}
+                    alt={tcgSet.set.name}
+                    width={30}
+                    height={30}
+                    loading="lazy"
+                    style={{ verticalAlign: "middle", marginRight: "0.5em" }}
+                  />
+                  {tcgSet.set.name}
+                </NavDropdown.Item>
+              ))}
             </NavDropdown>
           </Nav>
         )}
