@@ -9,10 +9,23 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import stringSimilarity from "string-similarity";
 import { pokemonNames } from "@/src/pokemonNames";
+import UseSettingsStore from "../UseStore/UseSettingsStore";
+import Image from "next/image";
 
-export default function Header() {
+export default function Header({ tcg }) {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
+  const { settings, setSetting } = UseSettingsStore((state) => state);
+
+  let activeSetDropdownTitle = "";
+  settings.activeSet === ""
+    ? (activeSetDropdownTitle = "TCG-Set")
+    : (activeSetDropdownTitle = settings.activeSetName);
+
+  function handleFixActiveSet() {
+    const tcgSetShort = settings.activeSet.split("-")[0];
+    UseSettingsStore.getState().setSetting("activeSet", tcgSetShort);
+  }
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
@@ -25,13 +38,15 @@ export default function Header() {
     const bestMatch = matches.bestMatch.target.toLowerCase();
     setSearchQuery(bestMatch);
 
+    handleFixActiveSet();
+
     router.push(`/pokemon/${bestMatch}`);
   };
 
   return (
-    <Navbar sticky="top" expand="lg" className="bg-body-tertiary">
+    <Navbar sticky="top" expand="md" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/pokemon">
           <img
             alt=""
             src="/img/logo.svg"
@@ -41,6 +56,37 @@ export default function Header() {
           />{" "}
           TCG-Dex
         </Navbar.Brand>
+        {router.pathname === "/pokemon/[id]" && (
+          <Nav className="me-auto">
+            <NavDropdown title={activeSetDropdownTitle} id="basic-nav-dropdown">
+              {tcg.data.map((tcgSet) => (
+                <NavDropdown.Item
+                  key={tcgSet.id}
+                  onClick={() => {
+                    UseSettingsStore.getState().setSetting(
+                      "activeSet",
+                      tcgSet.id
+                    );
+                    UseSettingsStore.getState().setSetting(
+                      "activeSetName",
+                      tcgSet.set.name
+                    );
+                  }}
+                >
+                  <Image
+                    src={tcgSet.set.images.symbol}
+                    alt={tcgSet.set.name}
+                    width={30}
+                    height={30}
+                    loading="lazy"
+                    style={{ verticalAlign: "middle", marginRight: "0.5em" }}
+                  />
+                  {tcgSet.set.name}
+                </NavDropdown.Item>
+              ))}
+            </NavDropdown>
+          </Nav>
+        )}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
           id="basic-navbar-nav"
@@ -56,26 +102,14 @@ export default function Header() {
                 value={searchQuery}
                 onChange={handleInputChange}
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" onClick={handleSearchSubmit}>
+                Search
+              </Button>
             </Form>
           </div>
           <div className="d-flex">
             <Nav className="me-auto">
-              <Nav.Link href="/">back</Nav.Link>
-              <Nav.Link href="/pokemon">Pokemon+TCG</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link href="/pokemon">Pokemon + TradingCards</Nav.Link>
             </Nav>
           </div>
         </Navbar.Collapse>

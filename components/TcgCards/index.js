@@ -1,56 +1,33 @@
-import useSWR from "swr";
 import Image from "next/image";
-import { useState } from "react";
-import {
-  StyledButton,
-  StyledButtonContainer,
-} from "../StyledButton/StyledButton.styled.js";
+import stringSimilarity from "string-similarity";
 
-export default function TcgCards({ pokemonName }) {
-  const [activeTcgCard, setActiveTcgCard] = useState("");
-  const {
-    data: tcg,
-    isLoading: tcgIsLoading,
-    error: tcgError,
-  } = useSWR(`https://api.pokemontcg.io/v2/cards/?q=name:${pokemonName}`);
-  if (tcgIsLoading) return <div>Loading...</div>;
-  if (tcgError) return <div>Error</div>;
+export default function TcgCards({ tcg, activeSet }) {
   return (
     <>
-      {activeTcgCard === "" ? (
-        <span>Choose a Set to show the Trading Card</span>
+      {activeSet === "" ? (
+        <p>Pick a TCG-Set to display a TradingCard</p>
       ) : (
-        ""
-      )}
-      <StyledButtonContainer>
-        {tcg.data.map((tcgCard) => (
-          <StyledButton
-            key={tcgCard.id}
-            onClick={() => setActiveTcgCard(`${tcgCard.images.large}`)}
-          >
-            <Image
-              src={tcgCard.set.images.symbol}
-              alt={tcgCard.set.name}
-              width={30}
-              height={30}
-              loading="lazy"
-              style={{ verticalAlign: "middle", marginRight: "0.5em" }}
-            />
-            {tcgCard.set.name}
-          </StyledButton>
-        ))}
-      </StyledButtonContainer>
-      {activeTcgCard === "" ? (
-        ""
-      ) : (
-        <Image
-          src={activeTcgCard}
-          alt={pokemonName}
-          width={367}
-          height={512}
-          loading="lazy"
-          style={{ margin: "0.5em", borderRadius: "0.5em" }}
-        />
+        tcg.data.map((tcgCard) => {
+          const similarity = stringSimilarity.compareTwoStrings(
+            tcgCard.id,
+            activeSet
+          );
+          if (similarity > 0.6) {
+            // set a threshold for similarity
+            return (
+              <Image
+                key={tcgCard.id}
+                src={tcgCard.images.large}
+                alt={tcgCard.name}
+                width={367}
+                height={512}
+                loading="lazy"
+                style={{ margin: "0.5em", borderRadius: "0.5em" }}
+              />
+            );
+          }
+          return null;
+        })
       )}
     </>
   );

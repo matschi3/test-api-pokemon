@@ -19,7 +19,8 @@
     "react-dom": "18.2.0",
     "string-similarity": "^4.0.4",
     "styled-components": "^6.0.2",
-    "swr": "^2.2.0"
+    "swr": "^2.2.0",
+    "zustand": "^4.4.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
