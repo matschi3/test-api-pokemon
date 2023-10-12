@@ -8,6 +8,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useRef } from "react";
+import SpinnerLoading from "@/components/SpinnerLoading";
 
 export default function PokemonPage() {
   const [page, setPage] = useState(1);
@@ -15,7 +16,7 @@ export default function PokemonPage() {
   const inputRef = useRef(null);
 
   const { data: fetchData, isLoading, error } = useSWR(`${url}`);
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <SpinnerLoading />;
   if (error) return <div>Error</div>;
   const { results, previous, next, count } = fetchData;
 
