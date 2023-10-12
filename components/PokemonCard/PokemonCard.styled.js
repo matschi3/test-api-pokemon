@@ -25,6 +25,7 @@ export const Card = styled.article`
   border-radius: 1em;
   width: 367px;
   height: 512px;
+  margin: 0.5rem;
   background-color: var(--color-grey);
   display: grid;
   grid-template-areas:
