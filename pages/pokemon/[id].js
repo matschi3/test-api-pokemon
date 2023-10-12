@@ -1,11 +1,13 @@
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import PokemonCard from "../../components/PokemonCard/index.js";
-import { StyledLinkButton } from "../../components/StyledLinkButton/StyledLinkButton.styled.js";
 import { CardContainer } from "../../components/PokemonCard/PokemonCard.styled.js";
 import TcgCards from "../../components/TcgCards/index.js";
 import Header from "@/components/Header/index.js";
 import UseSettingsStore from "@/components/UseStore/UseSettingsStore";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function DetailPokemonPage() {
   const router = useRouter();
@@ -34,9 +36,6 @@ export default function DetailPokemonPage() {
   return (
     <>
       <Header tcg={tcg} />
-      <StyledLinkButton href="/pokemon" style={{ padding: "0 0.5em" }}>
-        {" < back "}
-      </StyledLinkButton>
       <CardContainer marginTop="0" marginBottom="1em">
         <PokemonCard pokemon={pokemon} species={species} />
         <TcgCards tcg={tcg} activeSet={activeSet} />
