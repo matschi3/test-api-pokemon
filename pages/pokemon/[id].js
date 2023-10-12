@@ -7,6 +7,7 @@ import UseSettingsStore from "@/components/UseStore/UseSettingsStore";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import SpinnerLoading from "@/components/SpinnerLoading";
 
 export default function DetailPokemonPage() {
   const router = useRouter();
@@ -29,8 +30,7 @@ export default function DetailPokemonPage() {
 
   const activeSet = UseSettingsStore().settings.activeSet;
 
-  if (isLoading || speciesIsLoading || tcgIsLoading)
-    return <div>Loading...</div>;
+  if (isLoading || speciesIsLoading || tcgIsLoading) return <SpinnerLoading />;
   if (error || speciesError || tcgError) return <div>Error</div>;
   return (
     <>
