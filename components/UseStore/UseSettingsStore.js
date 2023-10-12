@@ -3,6 +3,7 @@ import { create } from "zustand";
 const UseSettingsStore = create(() => ({
   settings: {
     theme: "",
+    pkmnSearchQuery: "",
     activeSet: "",
   },
   setSetting: (setting, newValue) => {
