@@ -34,7 +34,7 @@ export default function DetailPokemonPage() {
   if (error || speciesError || tcgError) return <div>Error</div>;
   return (
     <>
-      <Header />
+      <Header tcg={tcg} />
       <StyledLinkButton href="/pokemon" style={{ padding: "0 0.5em" }}>
         {" < back "}
       </StyledLinkButton>
