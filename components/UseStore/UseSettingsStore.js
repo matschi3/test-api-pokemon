@@ -5,6 +5,7 @@ const UseSettingsStore = create(() => ({
     theme: "",
     pkmnSearchQuery: "",
     activeSet: "",
+    activeSetName: "",
   },
   setSetting: (setting, newValue) => {
     UseSettingsStore.setState((state) => ({
