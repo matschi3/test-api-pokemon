@@ -19,7 +19,7 @@ export default function Header() {
   let activeSetDropdownTitle = "";
   settings.activeSet === ""
     ? (activeSetDropdownTitle = "TCG-Set")
-    : (activeSetDropdownTitle = settings.activeSet);
+    : (activeSetDropdownTitle = settings.activeSetName);
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
