@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from "react-bootstrap/Dropdown";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import stringSimilarity from "string-similarity";
@@ -57,10 +58,13 @@ export default function Header({ tcg }) {
           TCG-Dex
         </Navbar.Brand>
         {router.pathname === "/pokemon/[id]" && (
-          <Nav className="me-auto">
-            <NavDropdown title={activeSetDropdownTitle} id="basic-nav-dropdown">
+          <Dropdown title={activeSetDropdownTitle} id="basic-nav-dropdown">
+            <Dropdown.Toggle variant="dark" id="dropdown-basic">
+              {activeSetDropdownTitle}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
               {tcg.data.map((tcgSet) => (
-                <NavDropdown.Item
+                <Dropdown.Item
                   key={tcgSet.id}
                   onClick={() => {
                     UseSettingsStore.getState().setSetting(
@@ -82,10 +86,10 @@ export default function Header({ tcg }) {
                     style={{ verticalAlign: "middle", marginRight: "0.5em" }}
                   />
                   {tcgSet.set.name}
-                </NavDropdown.Item>
+                </Dropdown.Item>
               ))}
-            </NavDropdown>
-          </Nav>
+            </Dropdown.Menu>
+          </Dropdown>
         )}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
@@ -102,7 +106,7 @@ export default function Header({ tcg }) {
                 value={searchQuery}
                 onChange={handleInputChange}
               />
-              <Button variant="outline-success" onClick={handleSearchSubmit}>
+              <Button variant="outline-dark" onClick={handleSearchSubmit}>
                 Search
               </Button>
             </Form>
