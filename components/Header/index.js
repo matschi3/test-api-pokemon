@@ -4,7 +4,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -47,7 +46,7 @@ export default function Header({ tcg }) {
   return (
     <Navbar sticky="top" expand="md" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/pokemon">
+        <Navbar.Brand href="/">
           <Image
             alt=""
             src="/sprites/poke-ball.png"
