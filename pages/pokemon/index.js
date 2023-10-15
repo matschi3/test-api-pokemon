@@ -16,8 +16,17 @@ export default function PokemonPage() {
   const inputRef = useRef(null);
 
   const { data: fetchData, isLoading, error } = useSWR(`${url}`);
-  if (isLoading) return <SpinnerLoading />;
-  if (error) return <div>Error</div>;
+  if (isLoading) return;
+  <>
+    <Header />
+    <h1>Pokemons</h1>
+    <SpinnerLoading />;
+  </>;
+  if (error) return;
+  <>
+    <Header />
+    <div>Error</div>;
+  </>;
   const { results, previous, next, count } = fetchData;
 
   const handleGoToPage = () => {
@@ -93,7 +102,11 @@ export default function PokemonPage() {
               min="1"
               max={Math.round(count / 20)}
               ref={inputRef}
-              style={{ width: "1.6em" }}
+              style={{
+                width: "1.6em",
+                borderRadius: "0.25em",
+                textAlign: "center",
+              }}
               onKeyDown={handleKeyDown}
               placeholder={`${page}`}
             />
