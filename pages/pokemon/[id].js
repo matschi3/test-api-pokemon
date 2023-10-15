@@ -30,8 +30,16 @@ export default function DetailPokemonPage() {
 
   const activeSet = UseSettingsStore().settings.activeSet;
 
-  if (isLoading || speciesIsLoading || tcgIsLoading) return <SpinnerLoading />;
-  if (error || speciesError || tcgError) return <div>Error</div>;
+  if (isLoading || speciesIsLoading || tcgIsLoading) return;
+  <>
+    <Header tcg={tcg} />
+    <SpinnerLoading />;
+  </>;
+  if (error || speciesError || tcgError) return;
+  <>
+    <Header tcg={tcg} />
+    <div>Error</div>;
+  </>;
   return (
     <>
       <Header tcg={tcg} />
