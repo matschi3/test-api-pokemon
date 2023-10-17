@@ -23,6 +23,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.pokemontcg.io**",
       },
+      {
+        protocol: "https",
+        hostname: "archives.bulbagarden.net**",
+      },
     ],
   },
 };
