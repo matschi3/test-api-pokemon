@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
+import Footer from "@/components/Footer";
+
 export default function HomePage() {
   return (
     <>
@@ -31,6 +33,7 @@ export default function HomePage() {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }
