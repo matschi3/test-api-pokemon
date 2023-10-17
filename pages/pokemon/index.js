@@ -10,6 +10,8 @@ import Col from "react-bootstrap/Col";
 import { useRef } from "react";
 import SpinnerLoading from "@/components/SpinnerLoading";
 
+import Footer from "@/components/Footer";
+
 export default function PokemonPage() {
   const [page, setPage] = useState(1);
   const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon`);
@@ -79,7 +81,7 @@ export default function PokemonPage() {
           ))}
         </Row>
       </Container>
-      <Container className="fixed-bottom d-flex justify-content-center">
+      <Container className="sticky-bottom d-flex justify-content-center">
         <Pagination size="lg">
           {page === 1 ? (
             // disabled on first page
@@ -130,6 +132,7 @@ export default function PokemonPage() {
           )}
         </Pagination>
       </Container>
+      <Footer />
     </>
   );
 }
