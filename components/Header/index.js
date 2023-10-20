@@ -112,7 +112,7 @@ export default function Header({ tcg }) {
           </div>
           <div className="d-flex">
             <Nav className="me-auto">
-              <Nav.Link href="/pokemon">Pokemon + TradingCards</Nav.Link>
+              <Nav.Link href="/pokemon">Pokemons</Nav.Link>
             </Nav>
           </div>
         </Navbar.Collapse>
