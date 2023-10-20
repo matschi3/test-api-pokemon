@@ -9,8 +9,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SpinnerLoading from "@/components/SpinnerLoading";
 
-import Footer from "@/components/Footer";
-
 export default function DetailPokemonPage() {
   const router = useRouter();
   const { id } = router.query; // id is a name for tcg api cause no pkmn-id there
@@ -59,7 +57,6 @@ export default function DetailPokemonPage() {
           </Col>
         </Row>
       </Container>
-      <Footer />
     </>
   );
 }
