@@ -5,7 +5,20 @@ export default function TcgCards({ tcg, activeSet }) {
   return (
     <>
       {activeSet === "" ? (
-        <p>Pick a TCG-Set to display a TradingCard</p>
+        <>
+          <Image
+            key="card-backside"
+            src="https://archives.bulbagarden.net/media/upload/1/17/Cardback.jpg"
+            alt="card-backside"
+            width={367}
+            height={512}
+            loading="lazy"
+            style={{ margin: "0.5em", borderRadius: "0.5em" }}
+          />
+          <span style={{ marginBottom: "5em", borderRadius: "0.5em" }}>
+            Pick a TCG-Set to display a TradingCard
+          </span>
+        </>
       ) : (
         tcg.data.map((tcgCard) => {
           const similarity = stringSimilarity.compareTwoStrings(

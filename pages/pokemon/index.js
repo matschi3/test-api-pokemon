@@ -79,7 +79,7 @@ export default function PokemonPage() {
           ))}
         </Row>
       </Container>
-      <Container className="fixed-bottom d-flex justify-content-center">
+      <Container className="sticky-bottom d-flex justify-content-center">
         <Pagination size="lg">
           {page === 1 ? (
             // disabled on first page
